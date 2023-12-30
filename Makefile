@@ -43,20 +43,20 @@ $(NAME): $(OBJS)
 
 obj/%.o: src/%.c
 	@mkdir -p obj
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 obj/%.o: src/parsing/%.c
 	@mkdir -p obj
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@make -C libft clean
 	@make -C minilibx-linux clean
-	@rm -rf obj
+	rm -rf obj
 
 fclean: clean
 	@make -C libft fclean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
