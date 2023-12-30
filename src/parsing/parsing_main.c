@@ -89,22 +89,17 @@ void	ft_swap(int a, int b)
 // and y the horizontal one but it's the opposite )
 int	ft_parse(int ac, char **av, t_game *game)
 {
+	char	**file_content;
+
 	if (argument_check(ac, av))
 		return (1);
-	game->parse.file_cont = get_file_content(av[1]);
-	if (game->parse.file_cont == NULL)
+	file_content = get_file_content(av[1]);
+	if (file_content == NULL)
 		return (1);
-	if (parse_map_info(game))
-	{
-		free_array(game->parse.file_cont);
-		return (1);
-	}
-	if (parse_map(game))
-	{
-		free_array(game->parse.file_cont);
-		return (1);
-	}
-	free_array(game->parse.file_cont);
+
+	// a toi de jouer Imen
+
+	free_array(file_content);
 	ft_swap(game->ray.posx, game->ray.posy);
 	return (0);
 }

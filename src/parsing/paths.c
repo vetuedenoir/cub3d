@@ -13,7 +13,7 @@
 #include "../../inc/cub3d.h"
 
 // Checks if the paths have the extension .xpm
-int	check_xpm_extention(t_game *game)
+/*int	check_xpm_extention(t_game *game)
 {
 	if (ft_strnstr(game->parse.no, ".xpm", ft_strlen(game->parse.no)) == NULL)
 		return (1);
@@ -65,10 +65,10 @@ char	*check_file_exist(t_game *game)
 		return (close(fds[0]), close(fds[1]), close(fds[2]), game->parse.ea);
 	return (close(fds[0]), close(fds[1]), close(fds[2]), close(fds[3]), NULL);
 }
-
+*/
 int	check_correct_paths(t_game *game)
 {
-	char	*ret;
+	/*char	*ret;
 
 	if (check_xpm_extention(game))
 		return (ft_putstr_fd("Error\nFile extention must be .xpm\n", 2), 1);
@@ -80,7 +80,7 @@ int	check_correct_paths(t_game *game)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (perror(ret), 1);
-	}
+	}*/
 	return (0);
 	(void)game;
 }

@@ -16,14 +16,14 @@ void	free_array(char	**array)
 
 void	free_elem(t_game *game)
 {
-	if (game->parse.no != NULL)
+/*	if (game->parse.no != NULL)
 		free(game->parse.no);
 	if (game->parse.so != NULL)
 		free(game->parse.so);
 	if (game->parse.we != NULL)
 		free(game->parse.we);
 	if (game->parse.ea != NULL)
-		free(game->parse.ea);
+		free(game->parse.ea);*/
 	if (game->map.map != NULL)
 		free_array(game->map.map);
 }

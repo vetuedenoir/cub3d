@@ -12,6 +12,7 @@
 
 #include "../inc/cub3d.h"
 
+/*
 t_img	load_texture(t_game *game, char *file)
 {
 	t_img img;
@@ -24,6 +25,8 @@ t_img	load_texture(t_game *game, char *file)
 	&img.bits_per_pixel, &img.line_length, &img.endian);
 	return (img);
 }
+
+	j ai enleve la structure parse donc cette fonction ne marche plus mais on peut la garde sa peus servir
 
 int	load_element(t_game *game)
 {
@@ -42,7 +45,7 @@ int	load_element(t_game *game)
 	game->image.height = game->win.h;
 	return (0);
 }
-
+*/
 
 int	init_struct(t_game *game)
 {
@@ -52,7 +55,7 @@ int	init_struct(t_game *game)
 		return (free_elem(game), 1);
 	mlx_get_screen_size(game->mlx, &game->win.w, &game->win.h);
 	game->win.w /= 2;
-	game->win.h -= 100;
+	game->win.h -= 60;
 	return (0);
 }
 
@@ -67,14 +70,15 @@ int	main(int ac, char **av)
 	if (ft_parse(ac, av, &game))
 		return (free_all(&game), 1);
 	printf("Parsing OK\n");
+	return (free_all(&game), 0);
+	/*
 	if (load_element(&game))
 		return (free_all(&game), 1);
+	*/
 	game.win.mlx_w = mlx_new_window(game.mlx, game.win.w, game.win.h, "cub3d");
 	if (!game.win.mlx_w)
 		return (free_all(&game), 1);
 	printf("player posx = %lf posy = %lf et orient = %c\n", game.ray.posx, game.ray.posy, game.orient);
-	//the_game(&game);
-	//mlx_key_hook(game.win.mlx_w, &key_hook, &game);
 	game.ray.rotation_angle = PI / 2;
 	mlx_loop_hook(game.mlx, the_game, &game);
 	mlx_hook(game.win.mlx_w, 2, 1L << 0, key_down_hook, &game);

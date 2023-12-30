@@ -15,16 +15,8 @@ NAME = cub3d
 SRCS =	main.c \
 		parsing/parsing_main.c \
 		parsing/argument.c \
-		parsing/elem_info.c \
-		parsing/elem_utils.c \
-		parsing/elem_rgb.c \
 		parsing/utils.c \
 		parsing/paths.c \
-		parsing/map.c \
-		parsing/map_utils.c \
-		parsing/map_utils2.c \
-		parsing/check_map.c \
-		parsing/check_player.c \
 		hook.c \
 		clean_all.c \
 		put_pixel.c \

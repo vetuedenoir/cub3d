@@ -31,20 +31,3 @@ void	skip_lines(int fd)
 	while (get_next_line(fd) != NULL)
 		;
 }
-
-// This function will skip all the spaces in a line
-void	skip_spaces(char *line, int *i)
-{
-	if (line == NULL)
-		return ;
-	if (line[*i] == '\0')
-		return ;
-	if (line[*i] == '\n')
-		return ;
-	while (line[*i] == ' ')
-	{
-		if (line[*i] == '\0')
-			return ;
-		(*i)++;
-	}
-}
