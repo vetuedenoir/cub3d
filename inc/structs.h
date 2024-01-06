@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:30:41 by kvisouth          #+#    #+#             */
-/*   Updated: 2023/12/05 20:59:48 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/06 14:52:23 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,11 @@ typedef struct s_rgb
 	int		b;
 }				t_rgb;
 
-// t_player contains all the informations about the player.
-// pos_x is the player position on the x axis. (Left - Right Abcis)
-// pos_y is the player position on the y axis. (Up - Down Ordinate)
-// It is the position of the player in game->map.map[x][y]
-typedef struct s_player
+typedef struct s_geo
 {
-	//int		pos_x;
-	//int		pos_y;
-	//char	orient;
-}				t_player;
+	float	point[2];
+	float	incremente[2];
+}	t_geo;
 
 // t_map contains all the informations about the map.
 // (The map is all the 1, 0 and N S E or W)
@@ -98,7 +93,6 @@ typedef struct	s_mouv
 	bool	go_backward;
 	bool	go_left;
 	bool	go_right;
-	int		rotate_dir;
 	bool	rotate_left;
 	bool	rotate_right;
 }			t_mouv;
@@ -110,10 +104,20 @@ typedef struct s_ray
 	double	posy;
 	double	ystep;
 	double	xstep;
+	bool	facing_right;
+	bool	facing_up;
 	double	xintercept; //le premier point
 	double	yintercept;	
-	double	wallx;
-	double	wally;
+	double	horiz_wallx;
+	double	horiz_wally;
+	bool	found_horiz_wall;
+	double	vert_wallx;
+	double	vert_wally;
+	bool	found_vert_wall;
+	double	ray_dist;
+	double	wallhitx;
+	double	wallhity;
+	int		texture;
 }			t_ray;
 
 

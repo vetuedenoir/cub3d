@@ -1,39 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   forme_geometrique.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/28 13:14:02 by kscordel          #+#    #+#             */
+/*   Updated: 2023/12/28 13:38:37 by kscordel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/cub3d.h"
-/*
-void draw_filled_circle(t_img *data, int xc, int yc, int radius, int color)
-{
-	int x = 0, y = radius;
-	int d = 3 - 2 * radius;
-
-	while (x <= y)
-	{
-		// Dessine la ligne horizontale entre les points symétriques
-		for (int i = xc - x; i <= xc + x; i++)
-		{
-			my_mlx_pixel_put(data, i, yc + y, color / 2);
-			my_mlx_pixel_put(data, i, yc - y, color / 2);
-		}
-
-		// Dessine la ligne horizontale entre les points symétriques
-		for (int i = xc - y; i <= xc + y; i++)
-		{
-			my_mlx_pixel_put(data, i, yc + x, color);
-			my_mlx_pixel_put(data, i, yc - x, color);
-		}
-
-		x++;
-
-		if (d > 0)
-		{
-			y--;
-			d = d + 4 * (x - y) + 10;
-		}
-		else
-		{
-			d = d + 4 * x + 6;
-		}
-	}
-}*/
 
 void	circle_bis(t_img *data, int *centre, int *point, int color)
 {
@@ -53,10 +30,10 @@ void	circle_bis(t_img *data, int *centre, int *point, int color)
 	}
 }
 
-void draw_filled_circle(t_img *data, int centre[2], int radius, int color)
+void	draw_filled_circle(t_img *data, int centre[2], int radius, int color)
 {
-	int point[2];
-	int d;
+	int	point[2];
+	int	d;
 
 	point[X] = 0;
 	point[Y] = radius;
@@ -74,37 +51,27 @@ void draw_filled_circle(t_img *data, int centre[2], int radius, int color)
 			d = d + 4 * point[X] + 6;
 	}
 }
-/*
-void draw_line_dda(t_img *data, int x1, int y1, int x2, int y2, int color)
+
+void	draw_line_bis(t_img *data, t_geo geo, int steps, int color)
 {
-	int dx = x2 - x1;
-	int dy = y2 - y1;
+	int	i;
 
-	int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
-
-	float xIncrement = (float)dx / (float)steps;
-	float yIncrement = (float)dy / (float)steps;
-
-	float x = x1, y = y1;
-
-	for (int i = 0; i <= steps; i++)
+	i = -1;
+	while (++i <= steps)
 	{
-		if (check_color_pix(data, round(x), round(y), MINI_FLOOR_COLOR))
+		if (check_color_pix(data, round(geo.point[X]), round(geo.point[Y]), MINI_FLOOR_COLOR))
 			break ;
-		my_mlx_pixel_put(data, round(x), round(y), color);
-		x += xIncrement;
-		y += yIncrement;
+		my_mlx_pixel_put(data, round(geo.point[X]), round(geo.point[Y]), color);
+		geo.point[X] += geo.incremente[X];
+		geo.point[Y] += geo.incremente[Y];
 	}
-}*/
+}
 
-
-void draw_line_dda(t_img *data, int p1[2], int p2[2], int color)
+void	draw_line_dda(t_img *data, int p1[2], int p2[2], int color)
 {
 	int		d[2];
 	int		steps;
-	float	Increment[2];
-	float	point[2];
-	int		i;
+	t_geo	geo;
 
 	d[X] = p2[X] - p1[X];
 	d[Y] = p2[Y] - p1[Y];
@@ -112,17 +79,9 @@ void draw_line_dda(t_img *data, int p1[2], int p2[2], int color)
 		steps = abs(d[X]);
 	else
 		steps = abs(d[Y]);
-	Increment[X] = (float)d[X] / (float)steps;
-	Increment[Y] = (float)d[Y] / (float)steps;
-	point[X] = p1[X];
-	point[Y] = p1[Y];
-	i = -1;
-	while (++i <= steps)
-	{
-		if (check_color_pix(data, round(point[X]), round(point[Y]), MINI_FLOOR_COLOR))
-			break ;
-		my_mlx_pixel_put(data, round(point[X]), round(point[Y]), color);
-		point[X] += Increment[X];
-		point[Y] += Increment[Y];
-	}
+	geo.incremente[X] = (float)d[X] / (float)steps;
+	geo.incremente[Y] = (float)d[Y] / (float)steps;
+	geo.point[X] = p1[X];
+	geo.point[Y] = p1[Y];
+	draw_line_bis(data, geo, steps, color);
 }

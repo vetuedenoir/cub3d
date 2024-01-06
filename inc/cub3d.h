@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:21:53 by kvisouth          #+#    #+#             */
-/*   Updated: 2023/12/05 13:22:34 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/06 18:07:15 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # include <fcntl.h>
 # include <string.h>    // strerror
 # include <errno.h>     // perror
+# include <limits.h>
 
 
 // PARSING FUNCTIONS
@@ -66,6 +67,7 @@ int	key_hook(int key, t_game *game);
 int	quit(t_game *game);
 int	key_down_hook(int key, t_game *game);
 int	key_up_hook(int key, t_game *game);
+void	update_move_perso(t_game *game);
 
 // clean the structure
 void	free_array(char	**array);
@@ -79,6 +81,7 @@ void	define_mid(t_game *game, double *x, double *y);
 
 // raycasting
 void	raycasting_2d(t_game *game);
+void	raycasting(t_game *game);
 
 // put_pixel
 int	makecolor(int t, int red, int green, int blue);
@@ -96,6 +99,8 @@ void draw_line_dda(t_img *data, int p1[2], int p2[2], int color);
 void draw_map(t_game *game);
 void draw_perso(t_game *game);
 
+void	print_tab(char **tab);
+char	*dup_str_len(const char *s, int len);
 
 
 #endif

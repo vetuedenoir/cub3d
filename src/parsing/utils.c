@@ -1,16 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_elem_utils.c                               :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kvisouth <kvisouth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:00:24 by kvisouth          #+#    #+#             */
-/*   Updated: 2023/11/15 16:21:32 by kvisouth         ###   ########.fr       */
+/*   Updated: 2024/01/06 18:02:41 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
+
+
+void	print_tab(char **tab)
+{
+	int	y = 0;
+	int x = 0;
+	
+	while (tab[y])
+	{
+		x = 0;
+		while (tab[y][x] != '\n' && tab[y][x])
+		{
+			ft_putchar_fd(tab[y][x], 1);
+			x++;
+		}
+		write(1, "%\n", 2);
+		y++;
+	}
+}
+
+char	*dup_str_len(const char *s, int len)
+{
+	char	*dup;
+	int		i;
+	int		t;
+
+	i = 0;
+	t = ft_strlen(s);
+	if (len > t)
+		dup = calloc(sizeof(char), len);
+	else
+		dup = malloc(t + 1);
+	if (!dup)
+		return (NULL);
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
 
 // This function will skip all the lines but will free the lines as well
 void	skip_lines_end(int fd)

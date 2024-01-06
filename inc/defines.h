@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:30:26 by kvisouth          #+#    #+#             */
-/*   Updated: 2023/12/05 17:00:02 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/06 17:35:37 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //for minimap
 
-# define MINI_BLOCK 20
+# define MINI_BLOCK 10
 # define MINI_T		40
 # define MINI_SIZE MINI_BLOCK * MINI_T
 # define MINI_PERSO 4
@@ -38,10 +38,14 @@
 
 # define ROTATION_SPEED 2 * (PI / 180) 
 # define MOUV_SPEED     0.1
-# define FOV            90 * (PI / 180)
+# define FOV            66 * (PI / 180)
 
 # define X 0
 # define Y 1  
+# define UP		true
+# define DOWN	false
+# define right	true
+# define left	false
 
 # define COUCOU() printf("salut les gars\n");
 

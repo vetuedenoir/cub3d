@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:15:16 by kscordel          #+#    #+#             */
-/*   Updated: 2023/12/05 14:24:15 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/06 18:12:56 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void draw_map(t_game *game)
 	long double	xs;
 	long double	ys;
 	double	ratio;
-
+	
 	ratio = 1.0 / (double)MINI_BLOCK;
 	define_midl(game, &xs, &ys);
 	x = xs;
@@ -103,7 +103,7 @@ void draw_map(t_game *game)
 	while (game->map.map[(int)y] && y - ys < MINI_T)
 	{
 		x = xs;
-		while (game->map.map[(int)y][(int)x] && x - xs < MINI_T)
+		while (game->map.map[(int)y][(int)floor(x)] && x - xs < MINI_T)
 		{			
 			if (!wall_or_floor(game->map.map[(int)y][(int)x]))
 				my_mlx_pixel_put(&game->image, (x - xs) * MINI_BLOCK, \

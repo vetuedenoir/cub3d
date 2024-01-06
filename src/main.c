@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:09:34 by kvisouth          #+#    #+#             */
-/*   Updated: 2023/12/02 13:23:17 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/06 17:21:41 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
-	COUCOU();
-
 	if (init_struct(&game))
 		return (1);
 	if (ft_parse(ac, av, &game))
@@ -73,9 +71,8 @@ int	main(int ac, char **av)
 	if (!game.win.mlx_w)
 		return (free_all(&game), 1);
 	printf("player posx = %lf posy = %lf et orient = %c\n", game.ray.posx, game.ray.posy, game.orient);
-	//the_game(&game);
-	//mlx_key_hook(game.win.mlx_w, &key_hook, &game);
 	game.ray.rotation_angle = PI / 2;
+	print_tab(game.map.map);
 	mlx_loop_hook(game.mlx, the_game, &game);
 	mlx_hook(game.win.mlx_w, 2, 1L << 0, key_down_hook, &game);
 	mlx_hook(game.win.mlx_w, 3, 1L << 1, key_up_hook, &game);
