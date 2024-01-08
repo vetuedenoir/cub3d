@@ -38,7 +38,7 @@ SRCS =	main.c \
 
 OBJS = $(addprefix obj/, $(notdir $(SRCS:.c=.o)))
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 LIBFT_MAKEFILE = libft/Makefile

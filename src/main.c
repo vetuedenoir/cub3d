@@ -66,18 +66,18 @@ void	init_dir(t_game *game)
 	else if (game->orient == 'S')
 	{
 		game->ray.rotation_angle = PI / 2;
-		game->ray.diry = 1;
+		game->ray.dirx = 1;
 	}
 	else if (game->orient == 'E')
 	{
 		game->ray.rotation_angle = 0;
-		game->ray.dirx = 1;
+		game->ray.dirx = -1;
 
 	}
 	else if (game->orient == 'W')
 	{
 		game->ray.rotation_angle = PI;
-		game->ray.dirx = -1;
+		game->ray.diry = -1;
 
 	}
 	if (game->ray.diry == -1)

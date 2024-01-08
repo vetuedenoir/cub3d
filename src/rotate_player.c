@@ -45,3 +45,48 @@ void	rotate_right(t_game *game)
 	game->ray.planey = old_planex * sin(ROTATION_SPEED)
 		+ game->ray.planey * cos(ROTATION_SPEED);
 }
+
+int	move_front(t_game *game)
+{
+	if (game->map.map[(int)(game->ray.posy + game->ray.diry \
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+		game->ray.posy += game->ray.diry * MOUV_SPEED;
+	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + game->ray.dirx \
+		* MOUV_SPEED)] != '1')
+		game->ray.posx += game->ray.dirx * MOUV_SPEED;
+	return (0);
+}
+
+int	move_back(t_game *game)
+{
+	if (game->map.map[(int)(game->ray.posy - game->ray.diry
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+		game->ray.posy -= game->ray.diry * MOUV_SPEED;
+	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - game->ray.dirx
+		* MOUV_SPEED)] != '1')
+		game->ray.posx -= game->ray.dirx * MOUV_SPEED;
+	//printf("move_back raydirx = %lf et raydiy = %lf\n", game->ray.dirx, game->ray.diry);
+	return (0);
+}
+
+int	move_left(t_game *game)
+{
+	if (game->map.map[(int)(game->ray.posy - game->ray.planey
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+		game->ray.posy -= game->ray.planey * MOUV_SPEED;
+	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - game->ray.planex
+		* MOUV_SPEED)] != '1')
+		game->ray.posx -= game->ray.planex * MOUV_SPEED;
+	return (0);
+}
+
+int	move_right(t_game *game)
+{
+	if (game->map.map[(int)(game->ray.posy + game->ray.planey
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+		game->ray.posy += game->ray.planey * MOUV_SPEED;
+	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + game->ray.planex
+		* MOUV_SPEED)] != '1')
+		game->ray.posx += game->ray.planex * MOUV_SPEED;
+	return (0);
+}

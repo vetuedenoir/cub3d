@@ -14,21 +14,24 @@
 
 void	straight_or_backward(t_game *game)
 {
-	double	tmp;
+	//double	tmp;
 
 	if (game->mouv.go_straigth)
 	{
-		tmp = cos(game->ray.rotation_angle) * MOUV_SPEED;
+		move_front(game);
+		/*tmp = cos(game->ray.rotation_angle) * MOUV_SPEED;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
 			!= '1')
 			game->ray.posx += tmp;
 		tmp = sin(game->ray.rotation_angle) * MOUV_SPEED;
 		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
 			!= '1')
-			game->ray.posy += tmp;
+			game->ray.posy += tmp;*/
 	}
 	if (game->mouv.go_backward)
 	{
+		move_back(game);
+		/*
 		tmp = cos(game->ray.rotation_angle) * -MOUV_SPEED;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
 			!= '1')
@@ -36,27 +39,29 @@ void	straight_or_backward(t_game *game)
 		tmp = sin(game->ray.rotation_angle) * -MOUV_SPEED;
 		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
 			!= '1')
-			game->ray.posy += tmp;
+			game->ray.posy += tmp;*/
 	}
 }
 
 void	right_or_left(t_game *game)
 {
-	double	tmp;
+	//double	tmp;
 
 	if (game->mouv.go_left)
 	{
-		tmp = cos(game->ray.rotation_angle - (PI / 2)) * MOUV_SPEED ;
+		move_left(game);
+		/*tmp = cos(game->ray.rotation_angle - (PI / 2)) * MOUV_SPEED ;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
 			!= '1')
 			game->ray.posx += tmp;
 		tmp = sin(game->ray.rotation_angle - (PI / 2)) * MOUV_SPEED;
 		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
 			!= '1')
-			game->ray.posy += tmp;
+			game->ray.posy += tmp;*/
 	}
 	if (game->mouv.go_right)
 	{
+		move_right(game);/*
 		tmp = cos(game->ray.rotation_angle + (PI / 2)) * MOUV_SPEED ;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
 			!= '1')
@@ -64,7 +69,7 @@ void	right_or_left(t_game *game)
 		tmp = sin(game->ray.rotation_angle + (PI / 2)) * MOUV_SPEED;
 		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
 			!= '1')
-			game->ray.posy += tmp;
+			game->ray.posy += tmp;*/
 	}
 }
 

@@ -104,6 +104,10 @@ char	*dup_str_len(const char *s, int len);
 
 void	rotate_left(t_game *game);
 void	rotate_right(t_game *game);
+int		move_front(t_game *game);
+int		move_back(t_game *game);
+int		move_left(t_game *game);
+int		move_right(t_game *game);
 
 
 #endif

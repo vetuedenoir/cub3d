@@ -22,7 +22,7 @@ int	set_last_line_lenmax(t_game *game)
 	int	t;
 
 	sm = 0;
-	i = game->parse.last_elem;
+	i = 0;
 	while (game->parse.file_cont[i] != NULL)
 	{
 		t = ft_strlen(game->parse.file_cont[i]);

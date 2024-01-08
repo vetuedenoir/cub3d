@@ -105,6 +105,6 @@ int	ft_parse(int ac, char **av, t_game *game)
 		return (1);
 	}
 	free_array(game->parse.file_cont);
-	ft_swap(game->ray.posx, game->ray.posy);
+	//ft_swap(game->ray.posx, game->ray.posy);
 	return (0);
 }
