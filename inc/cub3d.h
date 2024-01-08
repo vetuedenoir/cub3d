@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:21:53 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/06 18:07:15 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:04:41 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ void draw_perso(t_game *game);
 
 void	print_tab(char **tab);
 char	*dup_str_len(const char *s, int len);
+
+void	rotate_left(t_game *game);
+void	rotate_right(t_game *game);
 
 
 #endif

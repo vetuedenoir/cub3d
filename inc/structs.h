@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:30:41 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/06 14:52:23 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:52:19 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,26 @@ typedef struct s_ray
 	double	rotation_angle;
 	double	posx;
 	double	posy;
+	int		mapx;
+	int		mapy;
 	double	ystep;
 	double	xstep;
-	bool	facing_right;
-	bool	facing_up;
-	double	xintercept; //le premier point
-	double	yintercept;	
-	double	horiz_wallx;
-	double	horiz_wally;
-	bool	found_horiz_wall;
-	double	vert_wallx;
-	double	vert_wally;
-	bool	found_vert_wall;
-	double	ray_dist;
-	double	wallhitx;
-	double	wallhity;
-	int		texture;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
+	double	raydirx;
+	double	raydiry;
+	double	camerax;
+	double	sidedistx;
+	double	sidedisty;
+	double	deltadistx;
+	double	deltadisty;
+	int		side;
+	int		draw_start;
+	int		draw_end;
+	int		line_height;
+	double	perpwalldist;
 }			t_ray;
 
 

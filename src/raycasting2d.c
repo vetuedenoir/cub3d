@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 13:57:04 by kscordel          #+#    #+#             */
-/*   Updated: 2024/01/05 16:33:03 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:23:25 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	raycasting_2d(t_game *game)
 	point[Y] = (game->ray.posy - mid[Y]) * MINI_BLOCK;
 	ray_angle = game->ray.rotation_angle - (FOV / 2);
 	i = 0;
-	while (i < game->image.width / 100)
+	while (i < game->image.width * 2)
 	{
 		fin[X] = point[X] + cos(ray_angle) * MINI_SIZE * 2;
 		fin[Y] = point[Y] + sin(ray_angle) * MINI_SIZE * 2;
 		draw_line_dda(&game->image, point, fin, MINI_PERSO_COLOR);
-		ray_angle += FOV / game->image.width * 100;
+		ray_angle += FOV / game->image.width / 2;
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:15:31 by kscordel          #+#    #+#             */
-/*   Updated: 2024/01/02 16:42:35 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:06:24 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,15 @@ void	right_or_left(t_game *game)
 void	update_move_perso(t_game *game)
 {
 	if (game->mouv.rotate_left)
-		game->ray.rotation_angle += -2 * ROTATION_SPEED;
+	{
+		game->ray.rotation_angle += -1 * ROTATION_SPEED;
+		rotate_left(game);
+	}
 	if (game->mouv.rotate_right)
-		game->ray.rotation_angle += 2 * ROTATION_SPEED;
+	{
+		game->ray.rotation_angle += 1 * ROTATION_SPEED;
+		rotate_right(game);
+	}
 	straight_or_backward(game);
 	right_or_left(game);
 }

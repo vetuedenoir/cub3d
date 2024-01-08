@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:09:34 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/06 17:21:41 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/08 19:47:40 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,41 @@ int	init_struct(t_game *game)
 	return (0);
 }
 
+void	init_dir(t_game *game)
+{
+	if (game->orient == 'N')
+	{
+		game->ray.rotation_angle = PI * 1.5;
+		game->ray.diry = -1;
+	}
+	else if (game->orient == 'S')
+	{
+		game->ray.rotation_angle = PI / 2;
+		game->ray.diry = 1;
+	}
+	else if (game->orient == 'E')
+	{
+		game->ray.rotation_angle = 0;
+		game->ray.dirx = 1;
+
+	}
+	else if (game->orient == 'W')
+	{
+		game->ray.rotation_angle = PI;
+		game->ray.dirx = -1;
+
+	}
+	if (game->ray.diry == -1)
+		game->ray.planex = 0.66;
+	else if (game->ray.diry == 1)
+		game->ray.planex = -0.66;
+	else if (game->ray.dirx == -1)
+		game->ray.planey = -0.66;
+	else if (game->ray.dirx == 1)
+		game->ray.planey = 0.66;
+	printf("rotation_angle =  %lf\n", game->ray.rotation_angle);
+}
+
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -64,15 +99,15 @@ int	main(int ac, char **av)
 		return (1);
 	if (ft_parse(ac, av, &game))
 		return (free_all(&game), 1);
-	printf("Parsing OK\n");
 	if (load_element(&game))
 		return (free_all(&game), 1);
 	game.win.mlx_w = mlx_new_window(game.mlx, game.win.w, game.win.h, "cub3d");
 	if (!game.win.mlx_w)
 		return (free_all(&game), 1);
-	printf("player posx = %lf posy = %lf et orient = %c\n", game.ray.posx, game.ray.posy, game.orient);
 	game.ray.rotation_angle = PI / 2;
-	print_tab(game.map.map);
+	init_dir(&game);
+	//print_tab(game.map.map);
+	printf("posx = %lf posy = %lf\n", game.ray.posx, game.ray.posy);
 	mlx_loop_hook(game.mlx, the_game, &game);
 	mlx_hook(game.win.mlx_w, 2, 1L << 0, key_down_hook, &game);
 	mlx_hook(game.win.mlx_w, 3, 1L << 1, key_up_hook, &game);

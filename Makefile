@@ -6,7 +6,7 @@
 #    By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/07 12:36:43 by kvisouth          #+#    #+#              #
-#    Updated: 2024/01/05 16:20:31 by kscordel         ###   ########.fr        #
+#    Updated: 2024/01/08 18:03:57 by kscordel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRCS =	main.c \
 		raycasting2d.c \
 		forme_geometrique.c \
 		minimap.c \
-		raycasting.c
+		raycasting.c \
+		rotate_player.c
 		
 
 OBJS = $(addprefix obj/, $(notdir $(SRCS:.c=.o)))
