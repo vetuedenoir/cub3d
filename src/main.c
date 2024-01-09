@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:09:34 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/08 19:47:40 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:40:17 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	load_element(t_game *game)
 	&game->image.bits_per_pixel, &game->image.line_length, &game->image.endian);
 	game->image.width = game->win.w;
 	game->image.height = game->win.h;
+	printf("height so = %d et width = %d\n", game->so.height, game->so.height);
 	return (0);
 }
 
@@ -65,19 +66,19 @@ void	init_dir(t_game *game)
 	}
 	else if (game->orient == 'S')
 	{
-		game->ray.rotation_angle = PI / 2;
-		game->ray.dirx = 1;
+		game->ray.rotation_angle = PI /2;
+		game->ray.diry = 1;
 	}
 	else if (game->orient == 'E')
 	{
 		game->ray.rotation_angle = 0;
-		game->ray.dirx = -1;
+		game->ray.dirx = 1;
 
 	}
 	else if (game->orient == 'W')
 	{
 		game->ray.rotation_angle = PI;
-		game->ray.diry = -1;
+		game->ray.dirx = -1;
 
 	}
 	if (game->ray.diry == -1)

@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:30:41 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/08 17:52:19 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/09 21:27:09 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,11 @@ typedef struct s_ray
 	double	sidedisty;
 	double	deltadistx;
 	double	deltadisty;
+	double	wallx;
+	double	wally;
+	double	textx;
+	double	step;
+	double	textpos;
 	int		side;
 	int		draw_start;
 	int		draw_end;

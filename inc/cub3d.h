@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:21:53 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/08 18:04:41 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:11:10 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	define_mid(t_game *game, double *x, double *y);
 // raycasting
 void	raycasting_2d(t_game *game);
 void	raycasting(t_game *game);
+void	randering(t_game *game, int x);
 
 // put_pixel
 int	makecolor(int t, int red, int green, int blue);

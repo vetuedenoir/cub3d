@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 13:57:13 by kscordel          #+#    #+#             */
-/*   Updated: 2024/01/08 19:51:01 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/09 18:53:07 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,28 +93,6 @@ void	dda_algorithme(t_game *game)
 		game->ray.perpwalldist = game->ray.sidedisty - game->ray.deltadisty;
 }
 
-void	randering(t_game *game, int x)
-{
-	int	pitch;
-	int	v;
-
-	pitch = 100;
-	(void)pitch;
-	game->ray.line_height = (int)(game->image.height / game->ray.perpwalldist);
-	game->ray.draw_start = -game->ray.line_height / 2 + game->image.height / 2;
-	if (game->ray.draw_start < 0)
-		game->ray.draw_start = 0;
-	 game->ray.draw_end = game->ray.line_height / 2 + game->image.height / 2;
-	if (game->ray.draw_end >= game->image.height)
-		game->ray.draw_end = game->image.height -1;
-	v = game->ray.draw_start;
-	while (v <= game->ray.draw_end)
-	{
-		my_mlx_pixel_put(&game->image, x, v, 0xFF33FF);
-		v++;
-	}
-}
-
 void	raycasting(t_game *game)
 {
 	int	x;
@@ -129,7 +107,7 @@ void	raycasting(t_game *game)
 		init_raycasting(game, x);
 		calculate_step(game);
 		dda_algorithme(game);
-		randering(game, x);
+		//randering(game, x);
 		x++;
 	}
 }
