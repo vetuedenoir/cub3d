@@ -33,7 +33,7 @@ void	back_ground(t_game *game)
 			game->image.bits_per_pixel / 8) = floor;
 }
 
-void	two_dim(t_game *game)
+void	mini_map(t_game *game)
 {	
 	draw_map(game);
 	draw_perso(game);
@@ -45,7 +45,7 @@ int	the_game(t_game *game)
 	update_move_perso(game);
 	back_ground(game);
 	raycasting(game);
-	two_dim(game);
+	mini_map(game);
 	mlx_put_image_to_window(game->mlx, game->win.mlx_w, game->image.img, 0, 0);
 	return (0);
 }

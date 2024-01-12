@@ -88,6 +88,7 @@ void	randering(t_game *game, int x);
 int	makecolor(int t, int red, int green, int blue);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int	check_color_pix(t_img *data, int x, int y, int color);
+int	get_color_pix(t_img *img, int x, int y);
 
 //forme_geometric
 //void draw_filled_circle(t_img *data, int xc, int yc, int radius, int color);
@@ -109,6 +110,8 @@ int		move_front(t_game *game);
 int		move_back(t_game *game);
 int		move_left(t_game *game);
 int		move_right(t_game *game);
+
+void	randering(t_game *game, int x);
 
 
 #endif

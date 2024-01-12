@@ -119,7 +119,8 @@ typedef struct s_ray
 	double	deltadisty;
 	double	wallx;
 	double	wally;
-	double	textx;
+	int		textx;
+	int		texty;
 	double	step;
 	double	textpos;
 	int		side;

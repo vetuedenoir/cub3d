@@ -33,7 +33,8 @@ SRCS =	main.c \
 		forme_geometrique.c \
 		minimap.c \
 		raycasting.c \
-		rotate_player.c
+		rotate_player.c \
+		randering.c
 		
 
 OBJS = $(addprefix obj/, $(notdir $(SRCS:.c=.o)))

@@ -33,6 +33,8 @@ int	load_element(t_game *game)
 	game->ea = load_texture(game, game->parse.ea);
 	if (!game->ea.img || !game->we.img || !game->so.img || !game->no.img)
 		return (perror("mlx_xpm_file_to_img"), 1);
+	if (game->so.height != game->no.height || game->we.height != game->ea.height || game->so.height != game->ea.height)
+		return (printf("Error\ntextures non egales\n"));
 	game->image.img = mlx_new_image(game->mlx, game->win.w, game->win.h);
 	if (!game->image.img)
 		return (perror("mlx_new_img"), 1);
@@ -40,7 +42,6 @@ int	load_element(t_game *game)
 	&game->image.bits_per_pixel, &game->image.line_length, &game->image.endian);
 	game->image.width = game->win.w;
 	game->image.height = game->win.h;
-	printf("height so = %d et width = %d\n", game->so.height, game->so.height);
 	return (0);
 }
 
@@ -53,7 +54,7 @@ int	init_struct(t_game *game)
 		return (free_elem(game), 1);
 	mlx_get_screen_size(game->mlx, &game->win.w, &game->win.h);
 	game->win.w /= 2;
-	game->win.h -= 100;
+	game->win.h -= 90;
 	return (0);
 }
 

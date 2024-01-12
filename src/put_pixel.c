@@ -29,3 +29,11 @@ int	check_color_pix(t_img *data, int x, int y, int color)
 	else
 		return (-1);
 }
+
+int	get_color_pix(t_img *img, int x, int y)
+{
+	int	pix;
+
+	pix = y * img->line_length + x * (img->bits_per_pixel / 8);
+	return (*(int *)(img->addr + pix));
+}
