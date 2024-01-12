@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_paths.c                                    :+:      :+:    :+:   */
+/*   paths.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kvisouth <kvisouth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:57:10 by kvisouth          #+#    #+#             */
-/*   Updated: 2023/11/16 15:42:03 by kvisouth         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:40:08 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int	check_correct_paths(t_game *game)
 		return (ft_putstr_fd("Error\nFile extention must be .xpm\n", 2), 1);
 	ret = check_is_directory(game);
 	if (ret)
-		return (ft_putstr_fd(ret, 2), ft_putstr_fd(" is a directory\n", 2), 1);
+		return (ft_putstr_fd("Error\n", 2), ft_putstr_fd(ret, 2), \
+			ft_putstr_fd(" is a directory\n", 2), 1);
 	ret = check_file_exist(game);
 	if (ret)
 	{

@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 13:57:13 by kscordel          #+#    #+#             */
-/*   Updated: 2024/01/09 18:53:07 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:21:52 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	dda_algorithme(t_game *game)
 		{
 			game->ray.sidedisty += game->ray.deltadisty;
 			game->ray.mapy += game->ray.ystep;
-			game->ray.side = 1;	
+			game->ray.side = 1;
 		}
 		if (game->map.map[game->ray.mapy][game->ray.mapx] == '1')
 			break ;

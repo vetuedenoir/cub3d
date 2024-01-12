@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:15:16 by kscordel          #+#    #+#             */
-/*   Updated: 2024/01/06 18:12:56 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:34:58 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	define_mid(t_game *game, double *x, double *y)
 	}
 }
 
-void draw_perso(t_game *game)
+void	draw_perso(t_game *game)
 {
 	double	point[2];
 	int		p[2];
@@ -76,7 +76,6 @@ void draw_perso(t_game *game)
 	p[X] = (int)point[X];
 	p[Y] = (int)point[Y];
 	draw_filled_circle(&game->image, p, 5, MINI_PERSO_COLOR);
-	//draw_line_dda(&game->image, y, x, y + cos(game->ray.rotation_angle) * 200, x + sin(game->ray.rotation_angle) * 200, MINI_PERSO_COLOR);
 }
 
 int	wall_or_floor(char c)
@@ -88,14 +87,14 @@ int	wall_or_floor(char c)
 	return (-1);
 }
 
-void draw_map(t_game *game)
+void	draw_map(t_game *game)
 {
 	long double	x;
 	long double	y;
 	long double	xs;
 	long double	ys;
-	double	ratio;
-	
+	double		ratio;
+
 	ratio = 1.0 / (double)MINI_BLOCK;
 	define_midl(game, &xs, &ys);
 	x = xs;

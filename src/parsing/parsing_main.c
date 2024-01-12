@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kvisouth <kvisouth@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:27:14 by kvisouth          #+#    #+#             */
-/*   Updated: 2023/11/17 14:46:36 by kvisouth         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:51:10 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	**get_file_content(char *file)
 		return (NULL);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (perror(file), NULL);
+		return (ft_putstr_fd("Error\n", 2), perror(file), NULL);
 	file_content = ft_calloc(sizeof(char *), nb_lines + 1);
 	if (file_content == NULL)
 		return (close(fd), NULL);
@@ -105,6 +105,5 @@ int	ft_parse(int ac, char **av, t_game *game)
 		return (1);
 	}
 	free_array(game->parse.file_cont);
-	//ft_swap(game->ray.posx, game->ray.posy);
 	return (0);
 }

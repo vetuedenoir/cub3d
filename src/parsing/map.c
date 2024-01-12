@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:28:55 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/06 18:12:08 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:19:24 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,5 @@ int	parse_map(t_game *game)
 	game->map.map_width = get_width_of_map(game);
 	if (check_map(game) == 0)
 		return (1);
-	printf("%d et %d\n", m, game->map.map_width);
 	return (0);
 }

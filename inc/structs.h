@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:30:41 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/09 21:27:09 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:08:19 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_map
 	int			map_end;
 	int			map_width;
 	int			map_height;
-//	t_player	player;
 }				t_map;
 
 // t_parse contains all the informations about the parsing.
@@ -61,7 +60,6 @@ typedef struct s_parse
 	char		**file_cont;
 }				t_parse;
 
-
 // t_win contains all the informations about the window./
 // mlx_w is the mlx window.
 // w is the width of the window.
@@ -79,7 +77,6 @@ typedef struct s_img
 	int		width;
 }		t_img;
 
-
 typedef struct s_win
 {
 	void	*mlx_w;
@@ -87,7 +84,7 @@ typedef struct s_win
 	int		h;
 }				t_win;
 
-typedef struct	s_mouv
+typedef struct s_mouv
 {
 	bool	go_straigth;
 	bool	go_backward;
@@ -130,7 +127,6 @@ typedef struct s_ray
 	double	perpwalldist;
 }			t_ray;
 
-
 // t_game is the main strucure.
 // it includes all the others structures.
 typedef struct s_game
@@ -149,7 +145,6 @@ typedef struct s_game
 	t_map		map;
 	t_parse		parse;
 	char		orient;
-	//t_player	player;
 }				t_game;
 
 #endif

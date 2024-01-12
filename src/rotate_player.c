@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:42:18 by kscordel          #+#    #+#             */
-/*   Updated: 2024/01/08 19:51:51 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:59:27 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,47 +46,39 @@ void	rotate_right(t_game *game)
 		+ game->ray.planey * cos(ROTATION_SPEED);
 }
 
-int	move_front(t_game *game)
+void	init_dir2(t_game *game)
 {
-	if (game->map.map[(int)(game->ray.posy + game->ray.diry \
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
-		game->ray.posy += game->ray.diry * MOUV_SPEED;
-	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + game->ray.dirx \
-		* MOUV_SPEED)] != '1')
-		game->ray.posx += game->ray.dirx * MOUV_SPEED;
-	return (0);
+	if (game->ray.diry == -1)
+		game->ray.planex = 0.66;
+	else if (game->ray.diry == 1)
+		game->ray.planex = -0.66;
+	else if (game->ray.dirx == -1)
+		game->ray.planey = -0.66;
+	else if (game->ray.dirx == 1)
+		game->ray.planey = 0.66;
 }
 
-int	move_back(t_game *game)
+void	init_dir(t_game *game)
 {
-	if (game->map.map[(int)(game->ray.posy - game->ray.diry
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
-		game->ray.posy -= game->ray.diry * MOUV_SPEED;
-	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - game->ray.dirx
-		* MOUV_SPEED)] != '1')
-		game->ray.posx -= game->ray.dirx * MOUV_SPEED;
-	//printf("move_back raydirx = %lf et raydiy = %lf\n", game->ray.dirx, game->ray.diry);
-	return (0);
-}
-
-int	move_left(t_game *game)
-{
-	if (game->map.map[(int)(game->ray.posy - game->ray.planey
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
-		game->ray.posy -= game->ray.planey * MOUV_SPEED;
-	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - game->ray.planex
-		* MOUV_SPEED)] != '1')
-		game->ray.posx -= game->ray.planex * MOUV_SPEED;
-	return (0);
-}
-
-int	move_right(t_game *game)
-{
-	if (game->map.map[(int)(game->ray.posy + game->ray.planey
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
-		game->ray.posy += game->ray.planey * MOUV_SPEED;
-	if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + game->ray.planex
-		* MOUV_SPEED)] != '1')
-		game->ray.posx += game->ray.planex * MOUV_SPEED;
-	return (0);
+	if (game->orient == 'N')
+	{
+		game->ray.rotation_angle = PI * 1.5;
+		game->ray.diry = -1;
+	}
+	else if (game->orient == 'S')
+	{
+		game->ray.rotation_angle = PI / 2;
+		game->ray.diry = 1;
+	}
+	else if (game->orient == 'E')
+	{
+		game->ray.rotation_angle = 0;
+		game->ray.dirx = 1;
+	}
+	else if (game->orient == 'W')
+	{
+		game->ray.rotation_angle = PI;
+		game->ray.dirx = -1;
+	}
+	init_dir2(game);
 }

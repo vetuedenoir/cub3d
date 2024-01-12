@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:15:31 by kscordel          #+#    #+#             */
-/*   Updated: 2024/01/09 18:56:08 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:58:16 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,45 @@
 
 void	straight_or_backward(t_game *game)
 {
-	//double	tmp;
-
 	if (game->mouv.go_straigth)
 	{
-		move_front(game);
-		/*tmp = cos(game->ray.rotation_angle) * MOUV_SPEED;
-		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
-			!= '1')
-			game->ray.posx += tmp;
-		tmp = sin(game->ray.rotation_angle) * MOUV_SPEED;
-		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
-			!= '1')
-			game->ray.posy += tmp;*/
+		if (game->map.map[(int)(game->ray.posy + game->ray.diry \
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			game->ray.posy += game->ray.diry * MOUV_SPEED;
+		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + \
+			game->ray.dirx * MOUV_SPEED)] != '1')
+			game->ray.posx += game->ray.dirx * MOUV_SPEED;
 	}
 	if (game->mouv.go_backward)
 	{
-		move_back(game);
-		/*
-		tmp = cos(game->ray.rotation_angle) * -MOUV_SPEED;
-		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
-			!= '1')
-			game->ray.posx += tmp;
-		tmp = sin(game->ray.rotation_angle) * -MOUV_SPEED;
-		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
-			!= '1')
-			game->ray.posy += tmp;*/
+		if (game->map.map[(int)(game->ray.posy - game->ray.diry \
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			game->ray.posy -= game->ray.diry * MOUV_SPEED;
+		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - \
+			game->ray.dirx * MOUV_SPEED)] != '1')
+			game->ray.posx -= game->ray.dirx * MOUV_SPEED;
 	}
 }
 
 void	right_or_left(t_game *game)
 {
-	//double	tmp;
-
 	if (game->mouv.go_left)
 	{
-		move_left(game);
-		/*tmp = cos(game->ray.rotation_angle - (PI / 2)) * MOUV_SPEED ;
-		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
-			!= '1')
-			game->ray.posx += tmp;
-		tmp = sin(game->ray.rotation_angle - (PI / 2)) * MOUV_SPEED;
-		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
-			!= '1')
-			game->ray.posy += tmp;*/
+		if (game->map.map[(int)(game->ray.posy - game->ray.planey \
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			game->ray.posy -= game->ray.planey * MOUV_SPEED;
+		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - \
+			game->ray.planex * MOUV_SPEED)] != '1')
+			game->ray.posx -= game->ray.planex * MOUV_SPEED;
 	}
 	if (game->mouv.go_right)
 	{
-		move_right(game);/*
-		tmp = cos(game->ray.rotation_angle + (PI / 2)) * MOUV_SPEED ;
-		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + tmp)] \
-			!= '1')
-			game->ray.posx += tmp;
-		tmp = sin(game->ray.rotation_angle + (PI / 2)) * MOUV_SPEED;
-		if (game->map.map[(int)(game->ray.posy + tmp)][(int)game->ray.posx] \
-			!= '1')
-			game->ray.posy += tmp;*/
+		if (game->map.map[(int)(game->ray.posy + game->ray.planey \
+			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			game->ray.posy += game->ray.planey * MOUV_SPEED;
+		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + \
+			game->ray.planex * MOUV_SPEED)] != '1')
+			game->ray.posx += game->ray.planex * MOUV_SPEED;
 	}
 }
 
@@ -91,7 +74,6 @@ void	update_move_perso(t_game *game)
 
 int	key_down_hook(int key, t_game *game)
 {
-	//printf("key = %d\n", key);
 	if (key == ECHAP)
 		quit(game);
 	if (key == K_LEFT)

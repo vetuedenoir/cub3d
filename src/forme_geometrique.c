@@ -6,7 +6,7 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 13:14:02 by kscordel          #+#    #+#             */
-/*   Updated: 2023/12/28 13:38:37 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:31:48 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	draw_line_bis(t_img *data, t_geo geo, int steps, int color)
 	i = -1;
 	while (++i <= steps)
 	{
-		if (check_color_pix(data, round(geo.point[X]), round(geo.point[Y]), MINI_FLOOR_COLOR))
+		if (check_color_pix(data, round(geo.point[X]), round(geo.point[Y]), \
+			MINI_FLOOR_COLOR))
 			break ;
 		my_mlx_pixel_put(data, round(geo.point[X]), round(geo.point[Y]), color);
 		geo.point[X] += geo.incremente[X];

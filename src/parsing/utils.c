@@ -6,18 +6,18 @@
 /*   By: kscordel <kscordel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:00:24 by kvisouth          #+#    #+#             */
-/*   Updated: 2024/01/06 18:02:41 by kscordel         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:37:08 by kscordel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub3d.h"
 
-
 void	print_tab(char **tab)
 {
-	int	y = 0;
-	int x = 0;
-	
+	int	y;
+	int	x;
+
+	y = 0;
 	while (tab[y])
 	{
 		x = 0;
