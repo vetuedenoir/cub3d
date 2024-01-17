@@ -40,7 +40,7 @@ void	mini_map(t_game *game)
 	raycasting_2d(game);
 }
 
-/*long	gettime(void)
+long	gettime(void)
 {
 	struct timeval	time;
 
@@ -56,7 +56,6 @@ int	the_game(t_game *game)
 
 	tt  = gettime();
 	dif = tt - time;
-	printf("dif = %ld\n", dif);
 	if (dif < TICS)
 		usleep((TICS - dif));
 	time = tt;
@@ -67,8 +66,9 @@ int	the_game(t_game *game)
 		mini_map(game);
 	mlx_put_image_to_window(game->mlx, game->win.mlx_w, game->image.img, 0, 0);
 	return (0);
-}*/
+}
 
+/*
 int	the_game(t_game *game)
 {
 	update_move_perso(game);
@@ -79,4 +79,4 @@ int	the_game(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win.mlx_w, game->image.img, 0, 0);
 	return (0);
 }
-
+*/

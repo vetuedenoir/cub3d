@@ -17,7 +17,7 @@ void	straight_or_backward(t_game *game)
 	if (game->mouv.go_straigth)
 	{
 		if (game->map.map[(int)(game->ray.posy + game->ray.diry \
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			* (MOUV_SPEED + 0.05))][(int)game->ray.posx] != '1')
 			game->ray.posy += game->ray.diry * MOUV_SPEED;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + \
 			game->ray.dirx * MOUV_SPEED)] != '1')
@@ -26,7 +26,7 @@ void	straight_or_backward(t_game *game)
 	if (game->mouv.go_backward)
 	{
 		if (game->map.map[(int)(game->ray.posy - game->ray.diry \
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			* (MOUV_SPEED + 0.05))][(int)game->ray.posx] != '1')
 			game->ray.posy -= game->ray.diry * MOUV_SPEED;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - \
 			game->ray.dirx * MOUV_SPEED)] != '1')
@@ -39,7 +39,7 @@ void	right_or_left(t_game *game)
 	if (game->mouv.go_left)
 	{
 		if (game->map.map[(int)(game->ray.posy - game->ray.planey \
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			* (MOUV_SPEED + 0.05))][(int)game->ray.posx] != '1')
 			game->ray.posy -= game->ray.planey * MOUV_SPEED;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx - \
 			game->ray.planex * MOUV_SPEED)] != '1')
@@ -48,7 +48,7 @@ void	right_or_left(t_game *game)
 	if (game->mouv.go_right)
 	{
 		if (game->map.map[(int)(game->ray.posy + game->ray.planey \
-			* MOUV_SPEED)][(int)game->ray.posx] != '1')
+			* (MOUV_SPEED + 0.05))][(int)game->ray.posx] != '1')
 			game->ray.posy += game->ray.planey * MOUV_SPEED;
 		if (game->map.map[(int)game->ray.posy][(int)(game->ray.posx + \
 			game->ray.planex * MOUV_SPEED)] != '1')
