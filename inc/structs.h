@@ -118,8 +118,8 @@ typedef struct s_ray
 	double	wally;
 	int		textx;
 	int		texty;
-	double	step;
-	double	textpos;
+	float	step;
+	float	textpos;
 	int		side;
 	int		draw_start;
 	int		draw_end;

@@ -41,7 +41,7 @@ OBJ_DIR = obj/
 
 includes = inc/defines.h inc/cub3d.h inc/structs.h
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -o3 #-g3
+CFLAGS = -Wall -Wextra -Werror -o3 -g3
 libft = libft/libft.a
 minilibx = minilibx-linux/libmlx_Linux.a 
 

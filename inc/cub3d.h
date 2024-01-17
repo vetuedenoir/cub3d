@@ -34,6 +34,8 @@
 # include <errno.h>     // perror
 # include <limits.h>
 
+//# include <sys/time.h>
+
 // PARSING FUNCTIONS
 int		ft_parse(int ac, char **av, t_game *game);
 int		argument_check(int ac, char **av);
