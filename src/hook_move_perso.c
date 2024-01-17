@@ -92,7 +92,6 @@ int	key_down_hook(int key, t_game *game)
 		game->is_a_map = true;
 	else if (key == M && game->is_a_map)
 		game->is_a_map = false;
-	
 	return (0);
 }
 

@@ -91,7 +91,6 @@ void	randering(t_game *game, int x);
 int		makecolor(int t, int red, int green, int blue);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		check_color_pix(t_img *data, int x, int y, int color);
-int		get_color_pix(t_img *img, int x, int y);
 
 //minimap
 void	define_mid(t_game *game, double *x, double *y);
