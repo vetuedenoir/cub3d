@@ -35,40 +35,48 @@ SRCS =	main.c \
 		raycasting.c \
 		rotate_player.c \
 		randering.c
-		
 
 OBJS = $(addprefix obj/, $(notdir $(SRCS:.c=.o)))
+OBJ_DIR = obj/
 
+includes = inc/defines.h inc/cub3d.h inc/structs.h
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
-
-LIBFT_MAKEFILE = libft/Makefile
-MINILIBX_MAKEFILE = minilibx-linux/Makefile
+CFLAGS = -Wall -Wextra -Werror -o3 #-g3
+libft = libft/libft.a
+minilibx = minilibx-linux/libmlx_Linux.a 
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@make -C libft
-	@make -C minilibx-linux
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L libft -lft -L minilibx-linux -lmlx -lXext -lX11 -lm
+$(NAME): $(OBJS) | $(libft) $(minilibx)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L libft -lft -L minilibx-linux -lmlx -lXext -lX11 -lm
 
-obj/%.o: src/%.c
-	@mkdir -p obj
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(libft): 
+	make -j -C ./libft
 
-obj/%.o: src/parsing/%.c
-	@mkdir -p obj
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(minilibx) :
+	@make -j -C ./minilibx-linux
+
+$(OBJ_DIR)%.o: src/%.c $(includes) | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)%.o: src/parsing/%.c $(includes) | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
-	@make -C libft clean
-	@make -C minilibx-linux clean
-	@rm -rf obj
+	@make -j -C libft clean
+	@make -j -C minilibx-linux clean
+	rm -rf obj
 
 fclean: clean
-	@make -C libft fclean
-	@rm -f $(NAME)
+	@make -j -C libft fclean
+	rm -f $(NAME)
 
-re: fclean all
+re: fclean vitesse
 
-.PHONY: all clean fclean re
+vitesse:
+	make -j -C .
+
+.PHONY: all clean fclean re vitesse

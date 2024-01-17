@@ -88,6 +88,11 @@ int	key_down_hook(int key, t_game *game)
 		game->mouv.go_left = true;
 	if (key == K_D)
 		game->mouv.go_right = true;
+	if (key == M && !game->is_a_map)
+		game->is_a_map = true;
+	else if (key == M && game->is_a_map)
+		game->is_a_map = false;
+	
 	return (0);
 }
 

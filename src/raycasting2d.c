@@ -27,12 +27,12 @@ void	raycasting_2d(t_game *game)
 	point[Y] = (game->ray.posy - mid[Y]) * MINI_BLOCK;
 	ray_angle = game->ray.rotation_angle - (FOV / 2);
 	i = 0;
-	while (i < game->image.width * 2)
+	while (i < game->image.width / 5)
 	{
 		fin[X] = point[X] + cos(ray_angle) * MINI_SIZE * 2;
 		fin[Y] = point[Y] + sin(ray_angle) * MINI_SIZE * 2;
 		draw_line_dda(&game->image, point, fin, MINI_PERSO_COLOR);
-		ray_angle += FOV / game->image.width / 2;
+		ray_angle += FOV / game->image.width * 5;
 		i++;
 	}
 }

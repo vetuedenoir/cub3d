@@ -45,7 +45,8 @@ int	the_game(t_game *game)
 	update_move_perso(game);
 	back_ground(game);
 	raycasting(game);
-	mini_map(game);
+	if (game->is_a_map)
+		mini_map(game);
 	mlx_put_image_to_window(game->mlx, game->win.mlx_w, game->image.img, 0, 0);
 	return (0);
 }

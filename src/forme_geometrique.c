@@ -59,10 +59,10 @@ void	draw_line_bis(t_img *data, t_geo geo, int steps, int color)
 	i = -1;
 	while (++i <= steps)
 	{
-		if (check_color_pix(data, round(geo.point[X]), round(geo.point[Y]), \
+		if (check_color_pix(data, (int)geo.point[X], (int)geo.point[Y], \
 			MINI_FLOOR_COLOR))
 			break ;
-		my_mlx_pixel_put(data, round(geo.point[X]), round(geo.point[Y]), color);
+		my_mlx_pixel_put(data, (int)(geo.point[X]), (int)geo.point[Y], color);
 		geo.point[X] += geo.incremente[X];
 		geo.point[Y] += geo.incremente[Y];
 	}

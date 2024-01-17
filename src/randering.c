@@ -42,14 +42,6 @@ void	get_line_texture(t_game *game)
 		game->ray.line_height / 2) * game->ray.step;
 }
 
-void	draw(t_game *game, t_img *img, int x)
-{
-	int	color;
-
-	color = get_color_pix(img, game->ray.textx, game->ray.texty);
-	my_mlx_pixel_put(&game->image, x, game->ray.draw_start, color);
-}
-
 void	randering(t_game *game, int x)
 {
 	define_size_of_line(game);
@@ -59,13 +51,17 @@ void	randering(t_game *game, int x)
 		game->ray.texty = (int)game->ray.textpos & (game->so.height - 1);
 		game->ray.textpos += game->ray.step;
 		if (game->ray.side == 1 && game->ray.raydiry < 0)
-			draw(game, &game->so, x);
+			my_mlx_pixel_put(&game->image, x, game->ray.draw_start, \
+				get_color_pix(&game->so, game->ray.textx, game->ray.texty));
 		else if (game->ray.side == 1 && game->ray.raydiry > 0)
-			draw(game, &game->no, x);
+			my_mlx_pixel_put(&game->image, x, game->ray.draw_start, \
+				get_color_pix(&game->no, game->ray.textx, game->ray.texty));
 		else if (game->ray.side == 0 && game->ray.raydirx < 0)
-			draw(game, &game->we, x);
+			my_mlx_pixel_put(&game->image, x, game->ray.draw_start, \
+				get_color_pix(&game->we, game->ray.textx, game->ray.texty));
 		else if (game->ray.side == 0 && game->ray.raydirx > 0)
-			draw(game, &game->ea, x);
+			my_mlx_pixel_put(&game->image, x, game->ray.draw_start, \
+				get_color_pix(&game->ea, game->ray.textx, game->ray.texty));
 		game->ray.draw_start++;
 	}
 }

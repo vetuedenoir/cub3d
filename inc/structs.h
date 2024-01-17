@@ -25,8 +25,8 @@ typedef struct s_rgb
 
 typedef struct s_geo
 {
-	float	point[2];
-	float	incremente[2];
+	double	point[2];
+	double	incremente[2];
 }	t_geo;
 
 // t_map contains all the informations about the map.
@@ -145,6 +145,7 @@ typedef struct s_game
 	t_map		map;
 	t_parse		parse;
 	char		orient;
+	bool		is_a_map;
 }				t_game;
 
 #endif

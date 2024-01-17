@@ -35,11 +35,13 @@
 //# define K_A		97
 # define K_D		100
 # define ECHAP		65307
+//# define M			104
+# define M			44
 
 # define PI 3.14159265358979323846264338327950288419716939937510582097494459230
 
 //# define ROTATION_SPEED 1 * (PI / 180) 
-# define ROTATION_SPEED 0.017 
+# define ROTATION_SPEED 0.03 
 
 # define MOUV_SPEED     0.1
 //# define FOV            66 * (PI / 180)

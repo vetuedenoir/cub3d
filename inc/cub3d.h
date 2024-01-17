@@ -19,9 +19,7 @@
 // all the lib math (-lm man man 3 math)
 // all the mlx functions
 
-# include "../libft/inc/libft.h"
-# include "../libft/inc/get_next_line.h"
-# include "../libft/inc/ft_printf.h"
+# include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include "defines.h"
 # include "structs.h"
