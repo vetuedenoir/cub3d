@@ -65,6 +65,7 @@ int	check_player_position(t_game *game)
 		return (1);
 	if (game->map.map[y][x + 1] != '1' && game->map.map[y][x + 1] != '0')
 		return (1);
+	game->map.map[y][x] = '0';
 	return (0);
 }
 

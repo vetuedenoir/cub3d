@@ -15,7 +15,7 @@
 // Will increase i until it reaches a line with only \n
 void	skip_newlines(t_game *game, int *i)
 {
-	while (game->parse.file_cont[*i][0] == '\n')
+	while (game->parse.file_cont[*i] && game->parse.file_cont[*i][0] == '\n')
 		(*i)++;
 }
 

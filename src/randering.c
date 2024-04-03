@@ -46,8 +46,8 @@ void	search_and_draw(t_game *game, t_img *texture, int x)
 {
 	int	height;
 
-	x *= (game->image.bits_per_pixel / 8);
-	game->ray.textx *= (texture->bits_per_pixel / 8);
+	x *= 4;
+	game->ray.textx *= 4;
 	game->ray.draw_start *= game->image.line_length;
 	game->ray.draw_end *= game->image.line_length;
 	game->ray.textpos *= texture->line_length;

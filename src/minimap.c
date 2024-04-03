@@ -78,15 +78,6 @@ void	draw_perso(t_game *game)
 	draw_filled_circle(&game->image, p, 5, MINI_PERSO_COLOR);
 }
 
-int	wall_or_floor(char c)
-{
-	if (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W')
-		return (1);
-	else if (c == '1')
-		return (0);
-	return (-1);
-}
-
 void	draw_map(t_game *game)
 {
 	long double	x;
@@ -104,10 +95,10 @@ void	draw_map(t_game *game)
 		x = xs;
 		while (game->map.map[(int)y][(int)floor(x)] && x - xs < MINI_T)
 		{			
-			if (!wall_or_floor(game->map.map[(int)y][(int)x]))
+			if (game->map.map[(int)y][(int)x] == '1')
 				my_mlx_pixel_put(&game->image, (x - xs) * MINI_BLOCK, \
 					(y - ys) * MINI_BLOCK, MINI_WALL_COLOR);
-			else if (wall_or_floor(game->map.map[(int)y][(int)x]) > 0)
+			else if (game->map.map[(int)y][(int)x] == '0')
 				my_mlx_pixel_put(&game->image, (x - xs) * MINI_BLOCK, \
 					(y - ys) * MINI_BLOCK, MINI_FLOOR_COLOR);
 			x += ratio;

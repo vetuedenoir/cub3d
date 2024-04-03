@@ -28,7 +28,7 @@ int	count_file_lines(char *file)
 	if (line == NULL)
 	{
 		close(fd);
-		return (ft_putstr_fd("empty file\n", 2), 0);
+		return (ft_putstr_fd("Error\nempty file\n", 2), 0);
 	}
 	while (line != NULL)
 	{

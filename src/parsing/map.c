@@ -41,6 +41,11 @@ int	set_map_start(t_game *game, int i)
 	int	j;
 
 	j = 0;
+	if (game->parse.file_cont[i] == NULL)
+	{
+		printf("Error\nNo map\n");
+		return (0);
+	}
 	while (game->parse.file_cont[i][j] == ' ')
 		j++;
 	if (game->parse.file_cont[i][j] == '1'
@@ -81,7 +86,7 @@ int	get_map(t_game *game, int start, int end, int m)
 
 	i = start;
 	j = 0;
-	game->map.map = ft_calloc(sizeof(char *), (m));
+	game->map.map = ft_calloc(sizeof(char *), m + 1);
 	if (game->map.map == NULL)
 		return (0);
 	while (i <= end)

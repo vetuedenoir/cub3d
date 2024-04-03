@@ -20,16 +20,15 @@ int	makecolor(int t, int red, int green, int blue)
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	*(unsigned int *)(data->addr + \
-		( y * data->line_length + x * (data->bits_per_pixel / 8))) = color;
+		( y * data->line_length + x * 4)) = color;
 }
 
 int	check_color_pix(t_img *data, int x, int y, int color)
 {
 	int	pix;
 
-	pix = y * data->line_length + x * (data->bits_per_pixel / 8);
-	if (pix >= 0 && pix <= data->height * data->width * \
-		(data->bits_per_pixel / 8))
+	pix = y * data->line_length + x * 4;
+	if (pix >= 0 && pix <= data->height * data->width * 4)
 	{
 		if (*(int *)(data->addr + pix) != (int)color \
 			&& *(int *)(data->addr + pix) != (int)MINI_PERSO_COLOR)
