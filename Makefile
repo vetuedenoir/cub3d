@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 
 SRCS =	main.c \
 		parsing/parsing_main.c \
@@ -80,3 +80,5 @@ vitesse:
 	make -j -C .
 
 .PHONY: all clean fclean re vitesse
+
+

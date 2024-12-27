@@ -46,8 +46,8 @@
 # define ROTATION_SPEED 0.05
 
 # define MOUV_SPEED     0.1
-//# define FOV            66 * (PI / 180)
-# define FOV		1.15191730631625754988078824680997058749198913574219
+# define FOV            66 * (PI / 180)
+//# define FOV		1.15191730631625754988078824680997058749198913574219
 
 # define X 0
 # define Y 1  
