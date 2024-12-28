@@ -4,8 +4,7 @@
 ## Description du projet
 
 Cub3D est une représentation graphique 3D en vue subjective,
-inspirée des principes du ray-casting. Ce projet vise à recréer l'expérience d'exploration
-d'un labyrinthe en utilisant la bibliothèque graphique MiniLibX.
+Ce projet vise à recréer l'expérience d'exploration d'un labyrinthe en utilisant la bibliothèque graphique MiniLibX.
 Il constitue une introduction aux concepts fondamentaux de la programmation graphique et du rendu 3D.
 
 ## Fonctionnalités principales
@@ -21,3 +20,7 @@ Il constitue une introduction aux concepts fondamentaux de la programmation grap
 **Sol et plafond colorés** : Configuration des couleurs pour le sol et le plafond.
 
 **Minimap** : Affichage d'une minimap en appuyant sur la touche m.
+
+### contributor
+- [kvisouth](https://github.com/kvisouth)
+- [vetudenoir](https://github.com/vetuedenoir)
